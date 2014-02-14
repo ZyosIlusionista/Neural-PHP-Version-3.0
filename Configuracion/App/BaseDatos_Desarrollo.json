@@ -1,0 +1,18 @@
+{
+	"Predeterminado": {
+		"Doctrine" : { 
+			"dbname" : "base_datos",
+			"user" : "usuario",
+			"password" : "password",
+			"host" : "localhost",
+			"driver" : "pdo_mysql",
+			"charset" : "utf8"
+		},
+		"PDO" : { 
+			"dns" : "mysql:host=localhost;dbname=base_datos",
+			"user" : "usuario",
+			"password" : "password",
+			"parametros" : false
+		}
+	}
+}

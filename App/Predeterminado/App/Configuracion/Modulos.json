@@ -1,0 +1,9 @@
+{
+	"Configuracion" : {
+		"Activo" : false
+	},
+	"Modulos" : {
+		"Index" : false,
+		"Error" : false
+	}
+}
