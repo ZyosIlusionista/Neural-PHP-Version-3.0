@@ -49,7 +49,7 @@
 		 */
 		public function Actualizar() {
 			if(isset($this->TablaDB) == true AND isset($this->Sentencias) == true) {
-				$this->ConexionBD->update($this->TablaDB, $this->Sentencias, $this->Condiciones);
+				return $this->ConexionBD->update($this->TablaDB, $this->Sentencias, $this->Condiciones);
 			}
 			else {
 				throw new NeuralException('No Se Puede Actualizar Los Datos, Debe Ingresar la Tabla y las Sentencias Correspondientes');
@@ -91,7 +91,7 @@
 		 */
 		public function Eliminar() {
 			if(isset($this->TablaDB) == true AND isset($this->Condiciones) == true) {
-				$this->ConexionBD->delete($this->ConexionBD, $this->Condiciones);
+				return $this->ConexionBD->delete($this->TablaDB, $this->Condiciones);
 			}
 			else {
 				throw new NeuralException('No Se Puede Eliminar Los Datos, Debe Ingresar la Tabla y las Condiciones Correspondientes');
@@ -106,7 +106,7 @@
 		 */
 		public function Insertar() {
 			if(isset($this->TablaDB) == true AND isset($this->Sentencias) == true) {
-				$this->ConexionBD->insert($this->TablaDB, $this->Sentencias);
+				return $this->ConexionBD->insert($this->TablaDB, $this->Sentencias);
 			}
 			else {
 				throw new NeuralException('No Se Puede Insertar Los Datos, Debe Ingresar la Tabla y las Sentencias Correspondientes');
