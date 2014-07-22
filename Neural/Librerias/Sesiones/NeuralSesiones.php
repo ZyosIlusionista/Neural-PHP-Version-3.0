@@ -86,7 +86,7 @@
 		 */
 		public static function Finalizar($Llave = false) {
 			if(is_bool($Llave) == true) {
-				session_destroy();
+				//session_destroy();
 				unset($_SESSION);
 			}
 			elseif(is_array($Llave) == true) {
@@ -95,7 +95,7 @@
 				}
 			}
 			else {
-				session_destroy();
+				//session_destroy();
 				unset($_SESSION);
 			}
 		}
