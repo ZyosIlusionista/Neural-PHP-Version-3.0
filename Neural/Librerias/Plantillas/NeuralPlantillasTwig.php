@@ -57,9 +57,9 @@
 		 * @example booleano: valor true para activar cache false para desactivar
 		 * @example indicar directorio personalizado /opt/mi_cache/ ó c:\mi_cache\
 		 */
-		function __Construct($App = self::PREDETERMINADO, $Cache = false, $AppCapetaVista = false) {
+		function __Construct($App = self::PREDETERMINADO, $Cache = false, $AppCarpetaVista = false) {
 			$this->APP = trim($App);
-			$this->AppCapetaVista = $AppCapetaVista;
+			$this->AppCarpetaVista = $AppCarpetaVista;
 			if(is_bool($Cache) == true) {
 				$this->Cache = ($Cache == true) ? true : false;
 			}
@@ -225,8 +225,8 @@
 					if($Matriz['Configuracion']['Activo'] == true) {
 						if(array_key_exists($Comparacion, $Matriz['Modulos']) == true) {
 							if($Matriz['Modulos'][$Comparacion] == true) {
-								if($this->AppCapetaVista == true AND is_dir($this->AppCapetaVista) == true) {
-									$Data['Modulo'] = $this->AppCapetaVista;
+								if($this->AppCarpetaVista == true AND is_dir($this->AppCarpetaVista) == true) {
+									$Data['Modulo'] = $this->AppCarpetaVista;
 								}
 								else {
 									$Data['Modulo'] = implode(DIRECTORY_SEPARATOR, array(__SysNeuralFileRootApp__, $Array['Carpeta'], 'App', 'Modulos', $Comparacion, 'Vistas'));
@@ -234,9 +234,9 @@
 							}
 						}
 					}
-					if($this->AppCapetaVista == true AND is_dir($this->AppCapetaVista) == true) {
-						$Data['MVC'] = $this->AppCapetaVista;
-						$Data['Cache'] = $this->AppCapetaVista;
+					if($this->AppCarpetaVista == true AND is_dir($this->AppCarpetaVista) == true) {
+						$Data['MVC'] = $this->AppCarpetaVista;
+						$Data['Cache'] = implode(DIRECTORY_SEPARATOR, array(__SysNeuralFileRootApp__, $Array['Carpeta'], 'App', 'Temporales'));
 					}
 					else {
 						$Data['MVC'] = implode(DIRECTORY_SEPARATOR, array(__SysNeuralFileRootApp__, $Array['Carpeta'], 'App', 'MVC', 'Vistas'));
