@@ -60,7 +60,11 @@
 		 * @access private
 		 */
 		private static function Codificar($Valor) {
-			return (self::$Password == null) ? NeuralCriptografia::Codificar($Valor, array(hash('md5', self::$Password), self::$App)) : NeuralCriptografia::Codificar($Valor, self::$App);
+			if(self::$Password == null) :
+				return NeuralCriptografia::Codificar($Valor, self::$App);
+			else:
+				return NeuralCriptografia::Codificar($Valor, array(hash('md5', self::$Password), self::$App));
+			endif;
 		}
 		
 		/**
@@ -71,7 +75,11 @@
 		 * @access private
 		 */
 		private static function Decodificar($Valor) {
-			return (self::$Password == null) ? NeuralCriptografia::DeCodificar($Valor, array(hash('md5', self::$Password), self::$App)) : NeuralCriptografia::DeCodificar($Valor, self::$App);
+			if(self::$Password == null):
+				return NeuralCriptografia::DeCodificar($Valor, self::$App);
+			else:
+				return NeuralCriptografia::DeCodificar($Valor, array(hash('md5', self::$Password), self::$App));
+			endif;
 		}
 		
 		/**
@@ -86,8 +94,8 @@
 		 */
 		public static function Finalizar($Llave = false) {
 			if(is_bool($Llave) == true) {
-				//session_destroy();
 				unset($_SESSION);
+                session_destroy();
 			}
 			elseif(is_array($Llave) == true) {
 				foreach($Llave AS $Key => $Valor) {
@@ -95,8 +103,8 @@
 				}
 			}
 			else {
-				//session_destroy();
 				unset($_SESSION);
+                session_destroy();                
 			}
 		}
 		
