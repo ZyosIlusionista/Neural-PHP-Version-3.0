@@ -77,7 +77,7 @@
 		 * @return Los Campos No Son Iguales
 		 */
 		public function CampoIgual($CampoName = false, $IdCampoIgual = false, $Mensaje = false) {
-			if($CampoName == true AND is_bool($CampoName) == false AND $IdCampoIgual == true AND bool($IdCampoIgual) == false) {
+			if($CampoName == true AND is_bool($CampoName) == false AND $IdCampoIgual == true AND is_bool($IdCampoIgual) == false) {
 				$this->Reglas[$CampoName]['equalTo'] = "#".$IdCampoIgual;
 				$this->Mensajes[$CampoName]['equalTo'] = ($Mensaje == true AND is_bool($Mensaje) == false) ? $Mensaje : 'Los Campos No Son Iguales';
 			}
